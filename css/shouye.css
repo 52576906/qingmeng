@@ -1,0 +1,190 @@
+.box0 {
+  height: 1700px;
+  width: 100%;
+}
+
+.box1 {
+  height: 75px;
+  width: 100%;
+  background-color: black;
+}
+
+.header {
+  position: relative;
+}
+
+.logo {
+  float: left;
+  width: 18%;
+  position: relative;
+  top: 23px;
+  left: 30px;
+}
+
+.liebiao ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 30px;
+}
+
+.liebiao ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 17px;
+}
+
+.liebiao ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.liebiao ul li a:hover {
+  color: #14b9d5;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+
+.daohang:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.liebiao form {
+  float: left;
+  margin-left: 250px;
+}
+
+
+.lunbo {
+  height: 30%;
+  width: 80%;
+}
+
+.lunbo img {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  right: -480px;
+  top: 40px;
+}
+
+.box3 {
+  height: 30%;
+  width: 100%;
+  background-color: salmon;
+}
+
+.box3 .left {
+  height: 100%;
+  width: 50%;
+  background-color: aqua;
+}
+
+.box3 .right {
+  height: 100%;
+  width: 50%;
+  background-color: blueviolet;
+  position: relative;
+  top: -450px;
+  right: -943px;
+}
+
+.shangpin a {
+  text-decoration: none;
+  color: red;
+}
+
+.shangpin .tu {
+  width: 100%;
+  height: 80%;
+}
+
+.shangpin .zi {
+  width: 100%;
+  height: 20%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.shangpin .xiangqing {
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  position: relative;
+  top: -20px;
+  z-index: -1;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.xiangqing {
+  color: #14b9d5;
+}
+
+.shangpin:hover {
+  border: 1px solid black;
+}
+
+.shangpin:hover .xiangqing {
+  z-index: 2;
+}
+
+.zhanshi {
+  background-color: #14b9d5;
+}
+
+.zhanshi table {
+  position: relative;
+  left: 240px;
+
+}
+
+.zhanshi img {
+  width: 300px;
+  height: 200px;
+}
+
+.zhuce{
+  position: relative;
+  left: 1400px;
+  top: 10px;
+}
+.denglu {
+  position: relative;
+  left: 1400px;
+  top: 10px;
+}
+
+.dz .denglu,.zhuce{
+  display: inline-block;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  background-color: #4e6ef2;
+  height: 24px;
+  width: 48px;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0;
+  border: 0;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+}
