@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <link rel="stylesheet" href="css/shouye.css">
+  <link rel="stylesheet" href="css/shouye2.css">
+  <audio autoplay="autoplay" loop="">
+    <source src="music/Margarita.mp3">
+  </audio>
+</head>
+
+<body>
+  <script type="text/javascript" src="E:\HTML\人机交互课\大作业\js\canvas-nest.min.js"></script><canvas height="926"
+    width="1920" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" id="c_n1"></canvas>
+  <div class="box0">
+    <div class="box1">
+      <div class="header" id="">
+        <div class="daohang">
+          <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="" /></a>
+          </div>
+          <div class="liebiao">
+            <ul>
+              <li><a href="首页.html">主页 </a></li>
+              <li><a href="游戏新闻.html">新闻动态</a></li>
+              <li><a href="车辆展示.html">车辆展示</a></li>
+              <li><a href="购物车.html">购物车</a></li>
+            </ul>
+            <div class="dz">
+              <a class="zhuce" href="" onclick="register()">注册</a>
+              <a class="denglu" href="" onclick="login()">登录</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lunbo">
+      <img class="lunbotu" src="img/1.jpg" alt="">
+      <img class="lunbotu" src="img/2.jpg" alt="">
+      <img class="lunbotu" src="img/3.jpg" alt="">
+      <img class="lunbotu" src="img/4.jpg" alt="">
+    </div>
+    <div class="index-sec4">
+
+      <h1>优势</h1>
+      <div class="box">
+        <ul>
+          <li>
+            <a href="">
+              <strong>01</strong>
+              <h3>
+                很强的<br />
+                服务团队
+              </h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>02</strong>
+              <h3>
+                过硬的<br />
+                软硬件支持
+              </h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>03</strong>
+              <h3>
+                尊享<br />
+                五星服务
+              </h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>04</strong>
+              <h3>
+                24H<br />
+                全天服务
+              </h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>05</strong>
+              <h3>
+                近千种<br />
+                车辆
+              </h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>06</strong>
+              <h3>
+                便捷的网络<br />
+                咨询服务
+              </h3>
+            </a>
+          </li>
+        </ul>
+        <div class="jieshao">
+          <h1>介绍</h1>
+          <h2>
+            清梦科技由刘博洋运营，具有淘宝,闲鱼,转转,抖音,快手,小红书,微博等多个平台进行宣传销售，<br>
+            主营业务有，远程解决软件问题，远程诊断网络问题，极限竞速：地平线4、极限竞速：地平线5车辆与游戏币的销售。<br>
+            目前,好评如潮,无一差评.<br>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="w1200">
+        <p class="p1">
+          <a href="首页">网站首页</a><a href="https://baike.sogou.com/v206525114.htm?fromTitle=%E6%9E%81%E9%99%90%E7%AB%9E%E9%80%9F%EF%BC%9A%E5%9C%B0%E5%B9%B3%E7%BA%BF%205">游戏介绍</a><a href="车辆展示.html"> 车辆展示</a><a href="游戏新闻.html">游戏动态</a><a href="https://store.steampowered.com/app/1551360/_5/">购买游戏</a>
+        </p>
+        <p class="p2">
+          电话：<span> 176-2429-6987</span>
+        </p>
+        <p class="p3 p2">
+          地址：辽宁省大连市甘井子区陵水街道大连东软信息学院
+        </p>
+
+        <p class="p4">
+          <a href=""><img src="img/i1.png" /></a>
+          <a href=""><img src="img/i2.png" /></a>
+          <a href=""><img src="img/i3.png" /></a>
+          <a href=""><img src="img/i4.png" /></a>
+          <a href=""><img src="img/i5.png" /></a>
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+  window.onclick = function () {
+    Audio.play();
+  }
+
+  function register() {
+    window.open("注册.html", "", "width=500px,height=500px,left=700px", false);
+  }
+
+  function login() {
+    window.open("登录.html", "", "width=500px,height=500px,left=700px", false);
+  }
+  var imgs = document.getElementsByClassName("lunbotu");
+  for (var i = 0; i < 4; i++) {
+    imgs[i].style.display = "none"
+  }
+  imgs[0].style.display = "block";
+  var count = 0;
+  setInterval("show()", 3000);
+
+  function show() {
+    count++;
+    if (count == 4) {
+      count = 0
+    }
+    for (var i = 0; i < 4; i++) {
+      imgs[i].style.display = "none"
+    }
+    imgs[count].style.display = "block"
+  }
+</script>
+<script src="/大作业/js/canvas-nest.min.js">
+  < canvas id = "c_n4"
+  width = "860"
+  height = "958"
+  style = "position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" >
+    </canvas>
+</script>
+
+</html>

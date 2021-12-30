@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/css1.css">
+		</style>
+		<script type="text/javascript">
+			function register()
+			{
+				var name=document.getElementById("u").value;
+				var password=document.getElementById("p").value;
+				alert("注册成功!\n姓名："+name+"密码："+password);
+				localStorage.setItem("uname",name);
+				localStorage.setItem("upwd", password);
+				self.close();
+			}
+		</script>
+		<body>
+		<div class="box0">
+			<form action="" method="post">
+				<span>用户名：</span><input type="text" name="" id="u" value="" /><br>
+				<span>密码：</span><input type="text" name="" id="p" value="" /><br>
+				<input type="submit" value="注册" onclick="register()"/>
+			</form>
+		</div>
+		</body>
+	</html>
+	

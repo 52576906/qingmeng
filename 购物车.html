@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购物车</title>
+  <link rel="stylesheet" href="css/css3.css">
+  <link rel="stylesheet" href="css/shouye3.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+</head>
+
+<body>
+  <div class="box0">
+    <div class="box1">
+      <div class="header" id="">
+        <div class="daohang">
+          <div class="logo">
+            <a href="首页.html"><img src="img/logo.png" alt="" /></a>
+          </div>
+          <div class="liebiao">
+            <ul>
+              <li><a href="首页.html">主页 </a></li>
+              <li><a href="游戏新闻.html">新闻动态</a></li>
+              <li><a href="车辆展示.html">车辆展示</a></li>
+              <li><a href="购物车.html">购物车</a></li>
+            </ul>
+            <form action="https://www.baidu.com/s" name="wd" method="GET" id="wd" method="post">
+              <input class="input1" type="text" name="wd" id=""  value="极限竞速:地平线5" />
+              <input class="input2" type="submit" value="搜索" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table id="list"  cellspacing="" cellpadding="" width="100%">
+      <tr height="40px">
+        <td width="10%"><input type="checkbox"  onchange="selectall(this)">全选</td>
+        <td width="40%">商品信息</td>
+        <td width="10%">单价</td>
+        <td width="10%">数量</td>
+        <td width="10%">金额</td>
+        <td width="20%">操作</td>
+      </tr>
+    </table>
+    <div class="shuliang">
+    <h1 id="shu">数量:</h1>
+    <h1 id="n"></h1>
+    <h1 id="geshu">个</h1>
+  </div>
+    <div class="jine">
+    <h1 id="jin">金额:</h1>
+    <h1 id="p"></h1>
+    <h1 id="yuan">元</h1>
+  </div>
+</div>
+</body>
+<script>
+    window.onload=function(){
+      loaddata();
+    }
+    function loaddata(){
+      var str1=localStorage.getItem("carlist");
+      var data=JSON.parse(str1);
+      for(var i=0;i<data.list.length;i++){
+        var newelement=document.createElement("tr");
+        var l=document.getElementById("list");
+        l.appendChild(newelement);
+        newelement.id=data.list[i].id;
+        newelement.innerHTML="<fxfxfxxcvvbnnm td width=\"10%\">"
+          +"<input type=\"checkbox\" class=\"select\" onchange=\"zongjisuan()\">"
+          +"<img src=\""+data.list[i].img+"\">"
+        +"</fxfxfxxcvvbnnm>"
+        +"<td width=\"40%\">"+data.list[i].info+"</td>"
+        +"<td width=\"10%\"><b>"+data.list[i].price+"</b> </td>"
+        +"<td width=\"10%\">"
+          +"<input type=\"number\" value=\"0\" min=\"0\" max=\"100\" onchange=\"price(this)\">"
+        +"</td>"
+        +"<td width=\"10%\">"
+          +"<b>0</b>"
+          +"</td>"
+        +"<td width=\"20%\">"
+          +"<ul>"
+            +"<a href=\"\" onclick=\"deletenode('"+data.list[i].id+"')\"><li>删除</li></a>"
+          +"</ul>"
+        +"</td>";
+      }
+    }
+    function deletenode(id){
+      alert("删除成功");
+			var s=document.getElementById(id);
+			var p=s.parentNode;
+			p.removeChild(s);
+			var str1=localStorage.getItem("carlist");
+			var data=JSON.parse(str1);
+			for(var i=0;i<data.list.length;i++){
+				if(data.list[i].id==id){
+					data.list.splice(i,1);
+				}
+			}
+			var str2=JSON.stringify(data);
+			localStorage.setItem("carlist",str2);
+			zongjisuan();
+		}
+    function selectall(t){
+    var selects=document.getElementsByClassName("select");
+    if(t.checked==true){
+      for(var i=0;i<selects.length;i++)
+      {
+        selects[i].checked=true;
+      }
+    }
+      else{
+        for(var i =0;i<selects.length;i++){
+          selects[i].checked=false
+        }
+      }
+      zongjisuan();
+    }
+    function price(t){
+      var n=t.value;
+      var p=t.parentNode.previousElementSibling.children[0].innerHTML;
+      t.parentNode.nextElementSibling.children[0].innerHTML=p*n;
+      zongjisuan();
+    }
+    function zongjisuan(){
+      var n=0;
+      var p=0;
+      var selects=document.getElementsByClassName("select");
+      for(var i=0;i<selects.length;i++){
+        if(selects[i].checked==true)
+        {
+          n++;
+          p+=Number(selects[i].parentNode.parentNode.children[4].children[0].innerHTML);
+        }
+      }
+      document.getElementById("n").innerHTML=n;
+      document.getElementById("p").innerHTML=p;
+    }
+
+</script>
+</html>

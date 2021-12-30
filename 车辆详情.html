@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <link rel="stylesheet" href="css/xiangqing.css">
+    
+</head>
+
+<body>
+  <div class="box0">
+    <div class="box1">
+      <div class="header" id="">
+        <div class="daohang">
+          <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="" /></a>
+          </div>
+          <div class="liebiao">
+            <ul>
+              <li><a href="首页.html">主页 </a></li>
+              <li><a href="游戏新闻.html">新闻动态</a></li>
+              <li><a href="车辆展示.html">车辆展示</a></li>
+              <li><a href="购物车.html">购物车</a></li>
+            </ul>
+            <form action="https://www.baidu.com/s" name="wd" method="GET" id="wd" method="post">
+              <input class="input1" type="text" name="wd" id=""  value="极限竞速:地平线5" />
+              <input class="input2" type="submit" value="搜索" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="left">
+      <table border="" cellspacing="" cellpadding="" width="700px" height="500px">
+        <tr height="00px">
+          <td colspan="4">
+            <img id="tu" src="img/布加迪divo.png" width="100%"  height="500px" alt="" onmousemove="fangdajing(event)" onmouseout="xiaoshi()">
+            <canvas id="mycanvas">
+              
+            </canvas>
+          </td>
+        </tr>
+        <tr height="125px">
+          <td><img id="tu1" src="img/布加迪divo.png" width="100%" alt="" onmouseenter="xianshi(this)"></td>
+          <td><img id="tu2" src="img/布加迪/布加迪1.png" width="100%"alt="" onmouseenter="xianshi(this)"></td>
+          <td><img id="tu3" src="img/布加迪/布加迪2.png" width="100%" alt="" onmouseenter="xianshi(this)"></td>
+          <td><img id="tu4" src="img/布加迪/布加迪3.png" width="100%" alt="" onmouseenter="xianshi(this)"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="right">
+      <h2 id="n">商品名称</h2>
+      <p id="i">商品详情</p>
+      <h2 id="p">商品价格</h2>
+      <ul>
+        <a href="车辆展示.html" onclick=addcar()>
+          <li>加入购物车</li>
+        </a>
+        <a href="购物车.html">
+          <li>立即购买</li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js">
+
+</script>
+<script type="text/javascript">
+  var canvas=document.getElementById("mycanvas");
+  var context =canvas.getContext("2d");
+  canvas.style.display="none";
+  function xiaoshi(){
+    canvas.style.display="none";
+  }
+  function fangdajing(e){
+    canvas.style.display="block"
+    canvas.style.left=e.layerX+10+"px";
+    canvas.style.top=e.layerY+10+"px";
+    var img=new Image;
+    img.src=document.getElementById("tu").src;
+    var image=document.getElementById("tu");
+    var sw=img.width/image.width;
+    var sh=img.height/image.height;
+    context.clearRect(0,0,100,100);
+    context.drawImage(img,e.layerX*sw,e.layerY*sh,50*sw,50*sh,0,0,canvas.width,canvas.height);
+  }
+  function xianshi(t) {
+    document.getElementById("tu").src = t.src;
+  }
+  var loc = window.location.href;
+  var n = loc.indexOf("=");
+  var id = loc.substr(n + 1);
+  loaddata(id);
+
+  function loaddata(i) {
+    $.ajax({
+      url: "data/" + i + ".json",
+      type: "get",
+      dataType: "json",
+      data: {},
+      error: function (data) {
+        alert("读取数据失败");
+      },
+      success: function (data) {
+        // alert("name"+data.name+"price:"+data.price);
+        document.getElementById("tu").src = "img/" + data.img;
+        document.getElementById("tu1").src = "img/" + data.img1;
+        document.getElementById("tu2").src = "img/" + data.img2;
+        document.getElementById("tu3").src = "img/" + data.img3;
+        document.getElementById("tu4").src = "img/" + data.img4;
+        document.getElementById("n").innerHTML = "商品名称:" + data.name;
+        document.getElementById("i").innerHTML = "商品详情:" + data.info;
+        document.getElementById("p").innerHTML = data.price;
+      }
+    }
+    );
+  }
+  function addcar() {
+    alert("加入购物车成功");
+    var str1 = localStorage.getItem("carlist");
+    var json = JSON.parse(str1);
+    if (json == null) {
+        json = {
+            "list": []
+      };
+    }
+    var data = new Object;
+    data.id = id;
+    data.img = document.getElementById("tu").src;
+    data.info = document.getElementById("i").innerHTML;
+    data.price = document.getElementById("p").innerHTML;
+    json.list.push(data);
+    var str2 = JSON.stringify(json);
+    localStorage.setItem("carlist", str2);
+
+  }
+</script>
+
+</html>
+</html>
